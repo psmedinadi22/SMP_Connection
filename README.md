@@ -10,8 +10,10 @@ pass phrase for myDevisseKey.key = aasa1234
 
 Export Password: AASA1234
 
-pass phrase for rootCA.key = aasa1234
+pass phrase for MyRootCA.key = aasa1234
 
 pass phrase for subCA.key = aasa1234
+
+pass phrase for miDevice.key = aasa1234
 
 
