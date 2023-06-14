@@ -11,6 +11,9 @@ Prueba_SMP12.py capture network the data from a specific IP and ETH Interface an
 Create Certificades
 ----------------------------
 
+The certificates you mentioned (Self-Signed Certificate, root Certificate Authority, subordinate Certificate Authority, device certificates, and OPC UA certificates) are primarily used for authentication and secure communication rather than directly decrypting packet data.
+
+
 pass phrase for myDevisseKey.key = aasa1234
 
 Export Password: AASA1234
