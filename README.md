@@ -7,3 +7,4 @@ Prueba_SMP12.py capture network the data from a specific IP and ETH Interface an
 
 
 pas phrase for myDevisseKey.key = aasa1234
+Export Password: AASA1234
