@@ -28,5 +28,12 @@ pass phrase for miDevice.key = aasa1234
 SMP REST API 
 ---------------------------------
 
+To run open a commant and the promt and tipe
+
+´´´´
+run dotnet
+
+´´´´
+
 
 
