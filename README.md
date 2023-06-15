@@ -25,3 +25,8 @@ pass phrase for subCA.key = aasa1234
 pass phrase for miDevice.key = aasa1234
 
 
+SMP REST API 
+---------------------------------
+
+
+
