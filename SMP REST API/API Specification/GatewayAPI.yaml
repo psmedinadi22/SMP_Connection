@@ -1,0 +1,2591 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "8.0R4 b2600"
+  title: "SMP REST API"
+basePath: ""
+tags: []
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /api/dashboard/v1/name-plate-informations:
+    get:
+      tags:
+      - "Dashboard / Nameplate informations V1"
+      description: "Used to get the list of nameplate informations' identifiers."
+      operationId: "List"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DashboardNamePlateInformationsListV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/dashboard/v1/name-plate-informations/{id}:
+    get:
+      tags:
+      - "Dashboard / Nameplate informations V1"
+      description: "Used to get the nameplate informations."
+      operationId: "Get"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Nameplate informations identifier"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DashboardNamePlateInformationsGetV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/commissioning:
+    get:
+      tags:
+      - "Data / Commissioning V1"
+      description: "Used to get the status of the commissioning on an SMP Gateway.\
+        \ The Get Status response informs the user if it is possible to Join, Leave,\
+        \ Simulate a point."
+      operationId: "GetStatus"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataCommissioningV1_Status"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/commissioning/activate:
+    post:
+      tags:
+      - "Data / Commissioning V1"
+      description: "Used to activate the commissioning on the SMP Gateway."
+      operationId: "Activate"
+      parameters: []
+      responses:
+        200:
+          description: "The operation was completed with success."
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/commissioning/deactivate:
+    post:
+      tags:
+      - "Data / Commissioning V1"
+      description: "Used to deactivate the commissioning. All active commissioning\
+        \ sessions will be terminated."
+      operationId: "Deactivate"
+      parameters: []
+      responses:
+        200:
+          description: "The operation was completed with success."
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/commissioning/join:
+    post:
+      tags:
+      - "Data / Commissioning V1"
+      description: "Used to start or join a commissioning session.  The commissioning\
+        \ must be activated first."
+      operationId: "Join"
+      parameters: []
+      responses:
+        200:
+          description: "The operation was completed with success."
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/commissioning/leave:
+    post:
+      tags:
+      - "Data / Commissioning V1"
+      description: "Used to leave a commissioning session. The last user to leave\
+        \ does terminate the commissioning session."
+      operationId: "Leave"
+      parameters: []
+      responses:
+        200:
+          description: "The operation was completed with success."
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/instances:
+    get:
+      tags:
+      - "Data / Instances V1"
+      description: "Used to get a list of all the instances."
+      operationId: "List"
+      parameters:
+      - name: "details"
+        in: "query"
+        description: "The default value is false, some non dynamic informations are,\
+          \ in this case, not returned in the response. The details parameter allows\
+          \ to get all detailed informations related to the instances (e.g.: Name,\
+          \ Type, etc.)."
+        required: false
+        type: "boolean"
+      - name: "skip"
+        in: "query"
+        description: "Allows retrieving instances starting after a specific number\
+          \ of instances. The skip value displayed at the end of the previous returned\
+          \ response gives the query parameters <strong>skip</strong> value for the\
+          \ next query to allow retrieving instances without any gap in the list."
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "count"
+        in: "query"
+        description: "Allow retrieving a specific quantity of instances. The Skip\
+          \ parameter displayed at the end of a request is set according to the count\
+          \ value used in the previous query requests. This skip value can then be\
+          \ used for the next request in the Skip query parameter field"
+        required: false
+        type: "integer"
+      - name: "changeID"
+        in: "query"
+        description: "Return only the instances that have changed since the specified\
+          \ change ID, starting with the last transition that was requested.  The\
+          \ Change ID value displayed at the end of the previous returned response\
+          \ gives the query parameter value that should be entered in the next query\
+          \ to allow retrieving instances that contain data points that had a transition\
+          \ without losing any transition."
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstancesV1_List"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "Data / Instances V1"
+      description: "Used to set the behavior of the all instances at once."
+      operationId: "SetAll"
+      parameters:
+      - in: "body"
+        name: "changes"
+        description: "Changes to apply to all instances"
+        required: true
+        schema:
+          $ref: "#/definitions/DataInstancesV1_Set"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstancesV1_List"
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/instances/{id}:
+    get:
+      tags:
+      - "Data / Instances V1"
+      description: "Used to get a instance."
+      operationId: "GetByID"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstanceV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    put:
+      tags:
+      - "Data / Instances V1"
+      description: "Service used to set an instance behavior using the instance identifier."
+      operationId: "SetByID"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Instance identifier"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "changes"
+        description: "Changes to apply to the instance"
+        required: true
+        schema:
+          $ref: "#/definitions/DataInstancesV1_Set"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstanceV1"
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/instances/{name}:
+    get:
+      tags:
+      - "Data / Instances V1"
+      description: "Used to get an instance."
+      operationId: "GetByName"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "Name"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstanceV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    put:
+      tags:
+      - "Data / Instances V1"
+      description: "Service used to set an instance behavior using the instance name."
+      operationId: "SetByName"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "Instance Name"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "changes"
+        description: "Changes to apply to the instance"
+        required: true
+        schema:
+          $ref: "#/definitions/DataInstancesV1_Set"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataInstanceV1"
+        304:
+          description: "The operation did not implement any modification. Ex: Invalid\
+            \ old value when setting a new behavior, requesting to unsimulate a data\
+            \ point that was not simulated."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/points:
+    get:
+      tags:
+      - "Data / Points V1"
+      description: "Used to list all the points."
+      operationId: "List"
+      parameters:
+      - name: "details"
+        in: "query"
+        description: "The default value is false, some non dynamic informations are,\
+          \ in this case, not returned in the response. The details parameter allows\
+          \ to get all detailed informations related to the data points (e.g.: Name,\
+          \ Description, Deadband, etc.). "
+        required: false
+        type: "boolean"
+      - name: "skip"
+        in: "query"
+        description: "Allows retrieving data points starting after a specific quantity\
+          \ of points. The skip value displayed at the end of the previous query response\
+          \ gives the query parameters Skip value for the next query to avoid any\
+          \ gap in the data points request."
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "count"
+        in: "query"
+        description: "Allows retrieving a specific quantity of data points. The Skip\
+          \ parameter displayed at the end of a query response is set according to\
+          \ the count value used in the previous query requests.  This skip value\
+          \ can then be used for the next request in the Skip query parameter field."
+        required: false
+        type: "integer"
+      - name: "changeID"
+        in: "query"
+        description: "Allow retrieving data points that had a transition, starting\
+          \ with the last transition that was requested.  The Change ID value displayed\
+          \ at the end of the previous query response gives the query parameter value\
+          \ that should be entered in the next query to allow retrieving data points\
+          \ that had a transition without losing any of them."
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "Data / Points V1"
+      description: "Service used to list the data points while applying specific filters."
+      operationId: "Filter"
+      parameters:
+      - in: "body"
+        name: "filters"
+        description: "Filters to apply to the data points returned."
+        required: true
+        schema:
+          $ref: "#/definitions/DataPointsV1_Filters"
+      - name: "details"
+        in: "query"
+        description: "The default value is false, some non dynamic informations are,\
+          \ in this case, not returned in the response. The details parameter allows\
+          \ to get all detailed informations related to the data points (e.g.: Name,\
+          \ Description, Deadband, etc.)."
+        required: false
+        type: "boolean"
+      - name: "skip"
+        in: "query"
+        description: "Allows retrieving data points starting after a specific quantity\
+          \ of points. The skip value displayed at the end of the previous returned\
+          \ response gives the query parameters skip value for the next query to avoid\
+          \ any gap in the data points request."
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "count"
+        in: "query"
+        description: "Allows retrieving a specific quantity of data points. The Skip\
+          \ parameter displayed at the end of a request is set according to the count\
+          \ value used in the previous query requests.  This skip value can then be\
+          \ used for the next request in the Skip query parameter field."
+        required: false
+        type: "integer"
+      - name: "changeID"
+        in: "query"
+        description: "Allow retrieving data points that had a transition, starting\
+          \ with the last transition that was requested.  The Change ID value displayed\
+          \ at the end of the previous returned response gives the query parameter\
+          \ value that should be entered in the next query to allow retrieving data\
+          \ points that had a transition without losing any of them."
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/points/{id}:
+    get:
+      tags:
+      - "Data / Points V1"
+      description: "Used to get information on a specific data point."
+      operationId: "GetByID"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Data point identifier."
+        required: true
+        type: "integer"
+      - name: "details"
+        in: "query"
+        description: "The default value is false, some non dynamic informations are,\
+          \ in this case, not returned in the response. The details parameter allows\
+          \ to get all detailed informations related to the data points (e.g.: Name,\
+          \ Description, Deadband, etc.)."
+        required: false
+        type: "boolean"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "Data / Points V1"
+      description: "Used to set a data point value."
+      operationId: "SetByID"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Data point identifier"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "changes"
+        description: "Changes to be made to the data point"
+        required: true
+        schema:
+          $ref: "#/definitions/DataPointsV1_Set"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointsV1_SetResponse"
+        304:
+          description: "Not modified, the control operation failed."
+          schema:
+            $ref: "#/definitions/DataPointsV1_SetResponse"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        406:
+          description: "The operation has failed due to an not unacceptable request.\
+            \ Ex.: The operation is not valid at this time (current status) or the\
+            \ resource already exists."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/data/v1/points/{name}:
+    get:
+      tags:
+      - "Data / Points V1"
+      description: "Used to get a specific point informations."
+      operationId: "GetByName"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "Data point Name"
+        required: true
+        type: "string"
+      - name: "details"
+        in: "query"
+        description: "The default value is false, some non dynamic informations are,\
+          \ in this case, not returned in the response. The details parameter allows\
+          \ to get all detailed informations related to the data points (e.g.: Name,\
+          \ Description, Deadband, etc.)."
+        required: false
+        type: "boolean"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "Data / Points V1"
+      description: "Used to set a data point value."
+      operationId: "SetByName"
+      parameters:
+      - name: "name"
+        in: "path"
+        description: "Data point Name"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "changes"
+        description: "Changes to be made to the data point"
+        required: true
+        schema:
+          $ref: "#/definitions/DataPointsV1_Set"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DataPointsV1_SetResponse"
+        304:
+          description: "Not modified, the control operation failed."
+          schema:
+            $ref: "#/definitions/DataPointsV1_SetResponse"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        406:
+          description: "The operation has failed due to an not unacceptable request.\
+            \ Ex.: The operation is not valid at this time (current status) or the\
+            \ resource already exists."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/diagnostics/v1/logs:
+    get:
+      tags:
+      - "Diagnostics / Logs V1"
+      description: "Service used to get the logs list."
+      operationId: "List"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DiagnosticsLogsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    delete:
+      tags:
+      - "Diagnostics / Logs V1"
+      description: "Service used to clear all logs entries."
+      operationId: "ClearAll"
+      parameters:
+      - name: "olderThan"
+        in: "query"
+        description: "Clear only the entries older than the specified date"
+        required: false
+        type: "string"
+        format: "date-time"
+      responses:
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/diagnostics/v1/logs/{id}:
+    get:
+      tags:
+      - "Diagnostics / Logs V1"
+      description: "Service used to get a log entries."
+      operationId: "Get"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The log identifier must be entered in the value field (mandatory)."
+        required: true
+        type: "string"
+      - name: "startDate"
+        in: "query"
+        description: "Log entries starting date.  The entries with a time stamp that\
+          \ is more recent that the start date will be returned in the response."
+        required: false
+        type: "string"
+        format: "date-time"
+      - name: "startID"
+        in: "query"
+        description: "Log entries starting ID.  Each entry in the specified log file\
+          \ is identified with an ID.  This parameter allows to select the starting\
+          \ ID within the log file to be returned in the response. "
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "last"
+        in: "query"
+        description: "Returns the last entries of the selected log file according\
+          \ to the value entered in the Last field."
+        required: false
+        type: "integer"
+      - name: "count"
+        in: "query"
+        description: "Allow retrieving a specific quantity of entries from the selected\
+          \ log file. The Have More and Next Start ID parameters displayed at the\
+          \ end of a response request are set according to the count value used in\
+          \ the previous query request. These values can then be used for the next\
+          \ request in the Start ID query parameter field."
+        required: false
+        type: "integer"
+      - name: "code"
+        in: "query"
+        description: "Allow filtering the returned entries according to the Code."
+        required: false
+        type: "string"
+      - name: "subCode"
+        in: "query"
+        description: "Allow filtering the returned entries according to the Sub-Code.\
+          \ The Code must also be specified."
+        required: false
+        type: "string"
+      - name: "filterText"
+        in: "query"
+        description: "Allow filtering the returned entries according to the Filter\
+          \ Text (specified text must be contained), more than one filter can be specified\
+          \ using comma to seperate them. (Optional)"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "csv"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DiagnosticsLogV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    delete:
+      tags:
+      - "Diagnostics / Logs V1"
+      description: "Used to clear a log content."
+      operationId: "Clear"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Log Identifier"
+        required: true
+        type: "string"
+      - name: "olderThan"
+        in: "query"
+        description: "Clear only the entries older than the specified date"
+        required: false
+        type: "string"
+        format: "date-time"
+      responses:
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/diagnostics/v1/statistics/{path}:
+    get:
+      tags:
+      - "Diagnostics / Statistics V1"
+      description: "Service used to list the statistics located in the specified path."
+      operationId: "Get"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path to the statistics."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/DiagnosticsStatisticsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    delete:
+      tags:
+      - "Diagnostics / Statistics V1"
+      description: "Service used to reset the statistics located in the specified\
+        \ path."
+      operationId: "Reset"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path to the statistics."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/security/v1/local-settings:
+    get:
+      tags:
+      - "Security / Local-Settings V1"
+      description: "Used to get the identifier's list of the local security settings.\
+        \ The only available ID is current.  When the local security settings are\
+        \ enabled on the SMP Gateway, the returned response is current. Otherwise\
+        \ the returned response is empty, meaning that the local security is disabled\
+        \ on the SMP Gateway. "
+      operationId: "List"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SecurityLocalSettingsListV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "Security / Local-Settings V1"
+      description: "Service used to create new local settings; note that the local\
+        \ security must be disabled on the SMP Gateway."
+      operationId: "Create"
+      parameters:
+      - in: "body"
+        name: "settings"
+        description: "SecurityLocalSettingsV1"
+        required: true
+        schema:
+          $ref: "#/definitions/SecurityLocalSettingsV1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SecurityLocalSettingsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        406:
+          description: "The operation has failed due to an not unacceptable request.\
+            \ Ex.: The operation is not valid at this time (current status) or the\
+            \ resource already exists."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/security/v1/local-settings/{id}:
+    get:
+      tags:
+      - "Security / Local-Settings V1"
+      description: "Service used to get the SMP Gateway's local settings.  Note: Users\
+        \ password are not accessible."
+      operationId: "Get"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Local settings identifier"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SecurityLocalSettingsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    put:
+      tags:
+      - "Security / Local-Settings V1"
+      description: "Service used to update the SMP Gateway's existing local settings."
+      operationId: "Update"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Local setting identifier"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "SecurityLocalSettingsV1"
+        description: "Local setting security"
+        required: true
+        schema:
+          $ref: "#/definitions/SecurityLocalSettingsV1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SecurityLocalSettingsV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    delete:
+      tags:
+      - "Security / Local-Settings V1"
+      description: "Service used to delete the SMP Gateway's local settings."
+      operationId: "Delete"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Local settings identifier"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/system/v1/execute:
+    post:
+      tags:
+      - "System / Execute V1"
+      description: "Used to execute commands (.exe) on the device. (INTERNAL USE ONLY)"
+      operationId: "Execute"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "command"
+        description: "Command options"
+        required: false
+        schema:
+          $ref: "#/definitions/SystemExecuteV1_Execute"
+      - name: "timeout"
+        in: "query"
+        description: "Timeout (ms)"
+        required: false
+        type: "integer"
+      - name: "waitForExit"
+        in: "query"
+        description: "Wait for exit ?"
+        required: false
+        type: "boolean"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SystemExecuteV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/system/v1/files/{filepath}:
+    get:
+      tags:
+      - "System / Files V1"
+      description: "Used to get a file."
+      operationId: "GetFile"
+      produces:
+      - "application/octet-stream"
+      parameters:
+      - name: "filepath"
+        in: "path"
+        description: "The path of the file to retrieve"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "file"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    put:
+      tags:
+      - "System / Files V1"
+      description: "Service used to create a file and write the specified content\
+        \ to it."
+      operationId: "CreateFile"
+      consumes:
+      - "application/octet-stream"
+      parameters:
+      - name: "filepath"
+        in: "path"
+        description: "The path (including filename) of the file to create."
+        required: true
+        type: "string"
+      - in: "body"
+        name: "content"
+        description: "The file content"
+        required: true
+        schema:
+          type: "string"
+          format: "binary"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/system/v1/files/{path}:
+    get:
+      tags:
+      - "System / Files V1"
+      description: "Service used to get the list of files/folders. The user has access\
+        \ to the SMP Gateway Local folders, the Archive folder and the Configurations\
+        \ folder."
+      operationId: "List"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path of the folder to list it's content"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SystemFilesV1_Folder"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "System / Files V1"
+      description: "Service used to send a file."
+      operationId: "SendFile"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path to the folder (without the filename) where to save\
+          \ the file"
+        required: true
+        type: "string"
+      - name: "content"
+        in: "formData"
+        description: "file content"
+        required: true
+        type: "file"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    put:
+      tags:
+      - "System / Files V1"
+      description: "Used to create an a folder. (INTERNAL USE ONLY)"
+      operationId: "CreateFolder"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path of the folder to create"
+        required: true
+        type: "string"
+      - name: "isFolder"
+        in: "query"
+        description: "Create a folder ? (Should always be true)"
+        required: true
+        type: "boolean"
+        default: true
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    delete:
+      tags:
+      - "System / Files V1"
+      description: "Used to delete a file or folder."
+      operationId: "Delete"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "The path of the file or folder to delete"
+        required: true
+        type: "string"
+      - name: "recursive"
+        in: "query"
+        description: "Recursilvy delete all sub-tree ?"
+        required: false
+        type: "boolean"
+      - name: "removeDirectory"
+        in: "query"
+        description: "Also remove the directory ?"
+        required: false
+        type: "boolean"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/system/v1/info:
+    get:
+      tags:
+      - "System / Info V1"
+      description: "Used to get the system informations."
+      operationId: "Get"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SystemInfoV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/system/v1/restart:
+    get:
+      tags:
+      - "System / Restart V1"
+      description: "Service used to get the status of the SMP Gateway and its web\
+        \ application."
+      operationId: "GetStatus"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/SystemRestartV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+    post:
+      tags:
+      - "System / Restart V1"
+      description: "Service used to restart the SMP Gateway."
+      operationId: "Restart"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "options"
+        description: "options"
+        required: false
+        schema:
+          $ref: "#/definitions/SystemRestartV1_Options"
+      responses:
+        200:
+          description: "The operation was completed with success."
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        401:
+          description: "The operation has failed due to an unauthorized request. Ex.:\
+            \ failed to create a session, expired session, invalid basic authentification."
+        403:
+          description: "The operation has failed due to a forbidden request, the current\
+            \ authentification does not have the required privileges."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+  /api/{path}:
+    get:
+      tags:
+      - "Services"
+      description: "Used to retrieves the list of available services."
+      operationId: "List"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "path"
+        in: "path"
+        description: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/ServicesV1"
+        400:
+          description: "The operation has failed due to an invalid request. Ex.: invalid\
+            \ URI, invalid body, invalid parameters."
+        404:
+          description: "The operation has failed due to an unfound resource. Ex.:\
+            \ Too many sessions already opened, resource not existing."
+        500:
+          description: "The operation has failed due to an unexpected internal error."
+        501:
+          description: "The operation has failed due to an un-implemented method."
+        503:
+          description: "The operation has failed because the service is unavailable\
+            \ for the moment (ex.: starting, restarting or safe mode)."
+securityDefinitions:
+  Basic:
+    description: "Basic authentication"
+    type: "basic"
+definitions:
+  ServicesV1:
+    properties:
+      Services:
+        type: "array"
+        description: "Used to list the services located in the specified path."
+        items:
+          type: "string"
+    description: "Model for Services"
+  ESystemStateV1:
+    type: "string"
+    enum:
+    - "Unknown"
+    - "Stopped"
+    - "Connecting"
+    - "Configuring"
+    - "Configured"
+    - "Starting"
+    - "StartingLocalHmi"
+    - "Started"
+    - "Failed"
+    - "LocalHmiFailed"
+    - "SmfAppFailed"
+    - "NotEnoughMemory"
+    - "NotConfigured"
+    - "SafeMode"
+  SystemExecuteV1:
+    properties:
+      Output:
+        type: "string"
+      Result:
+        type: "integer"
+      Timeout:
+        type: "boolean"
+  SystemExecuteV1_Execute:
+    properties:
+      App:
+        $ref: "#/definitions/SystemExecuteV1_Execute_App"
+      Commands:
+        type: "array"
+        items:
+          type: "string"
+      Input:
+        type: "string"
+  SystemRestartV1:
+    properties:
+      State:
+        description: "The actual state of the SMP Gateway."
+        $ref: "#/definitions/ESystemStateV1"
+      StatusText:
+        type: "string"
+        description: "The actual SMP Gateway status as shown in SMP Manager."
+      StartupCount:
+        $ref: "#/definitions/SystemRestartV1_StartupCount"
+  SystemRestartV1_Options:
+    properties:
+      Message:
+        type: "string"
+        description: "A messaged can be entered when restarting the SMP Gateway, this\
+          \ message will be written in the logs."
+      Mode:
+        type: "string"
+        description: "A restart mode can be specified: default, full or safe."
+        enum:
+        - "Default"
+        - "Full"
+        - "Safe"
+        - "WebsOnly"
+  SystemFilesV1_Folder:
+    properties:
+      Name:
+        type: "string"
+        description: "Folder name"
+      Files:
+        type: "array"
+        items:
+          $ref: "#/definitions/SystemFilesV1_File"
+      Folders:
+        type: "array"
+        items:
+          $ref: "#/definitions/SystemFilesV1_Folder"
+    description: "Model for files"
+  SystemFilesV1_File:
+    properties:
+      Name:
+        type: "string"
+        description: "File name"
+      Size:
+        type: "integer"
+        format: "int64"
+        description: "File size"
+      CreationTime:
+        type: "string"
+        format: "date-time"
+        description: "Timestamp of the file creation"
+      LastAccessTime:
+        type: "string"
+        format: "date-time"
+        description: "Timestamp of the file's last access"
+      LastWriteTime:
+        type: "string"
+        format: "date-time"
+        description: "Timestamp of the file's last written access"
+    description: "Model for files"
+  SecurityLocalSettingsListV1:
+    properties:
+      IDs:
+        type: "array"
+        description: "Security local settings identifier"
+        items:
+          type: "string"
+  SecurityLocalSettingsV1:
+    properties:
+      SecurityPolicy:
+        $ref: "#/definitions/SecurityLocalSettingsV1_SecurityPolicy"
+    description: "Model for SecurityLocalSettingsV1"
+  DashboardNamePlateInformationsListV1:
+    properties:
+      IDs:
+        type: "array"
+        description: "Nameplate informations identifiers, the only nameplate informations\
+          \ ID available is current.   "
+        items:
+          type: "string"
+    description: "This response allows listing the nameplate informations' identifiers."
+  DashboardNamePlateInformationsGetV1:
+    properties:
+      Informations:
+        $ref: "#/definitions/DashboardNamePlateInformationsGetV1_Informations"
+    description: "This response is used to get the SMP Gateway nameplate informations."
+  SystemInfoV1:
+    properties:
+      Firmware:
+        $ref: "#/definitions/SystemInfoV1_Firmware"
+      Hardware:
+        $ref: "#/definitions/SystemInfoV1_Hardware"
+      Settings:
+        $ref: "#/definitions/SystemInfoV1_Settings"
+      License:
+        $ref: "#/definitions/SystemInfoV1_License"
+      Startup:
+        $ref: "#/definitions/SystemInfoV1_Startup"
+    description: "This response is used to get the SMP Gateway system informations."
+  SmpDateV1:
+    properties:
+      Status:
+        type: "integer"
+        format: "int32"
+      Value:
+        type: "string"
+        format: "date-time"
+    description: "Model for SMP Date"
+  DiagnosticsLogsV1:
+    properties:
+      IDs:
+        type: "array"
+        description: "Log Identifiers"
+        items:
+          type: "string"
+    description: "Model for logs"
+  DiagnosticsLogV1:
+    properties:
+      ID:
+        type: "string"
+        description: "Log identifier."
+      HaveMore:
+        type: "boolean"
+        description: "Informs the user if more log entries are available, other than\
+          \ the ones that were requested."
+      NextStartID:
+        type: "integer"
+        format: "int64"
+        description: "The last Change ID value that was transmitted in the response.\
+          \  This Change ID value can then be used in the start ID query parameter\
+          \ to allow retrieving all log content on a continuous basis."
+      Entries:
+        type: "array"
+        description: "Log entries"
+        items:
+          $ref: "#/definitions/DiagnosticsLogV1_Entry"
+    description: "Response to the get log entries request"
+  DiagnosticsLogV1_Entry:
+    properties:
+      ID:
+        type: "integer"
+        format: "int64"
+        description: "Log entry identifier"
+      Date:
+        type: "string"
+        format: "date-time"
+        description: "Log entry starting date.  The entries with a time stamp that\
+          \ is more recent that the start date will be returned in the response"
+      Code:
+        type: "string"
+        description: "Log entry code"
+      SubCode:
+        type: "string"
+        description: "Log entry sub-code"
+      Text:
+        type: "string"
+        description: "Log entry text"
+    description: "Model for a log entry "
+  DataCommissioningV1_Status:
+    properties:
+      CanJoin:
+        type: "boolean"
+      CanLeave:
+        type: "boolean"
+      CanSimulate:
+        type: "boolean"
+      LocalControl:
+        type: "boolean"
+      State:
+        type: "string"
+        description: "The SMP Gateway commissioning can have different statuses, most\
+          \ of them are self explanatory. The Unknown status indicates an internal\
+          \ error, the Active status indicates that the Commissioning is activated\
+          \ and a session can be started and finally, the Started status indicates\
+          \ that at least one commissioning session is started. "
+        enum:
+        - "Unknown"
+        - "Deactivating"
+        - "Deactivated"
+        - "Activating"
+        - "Active"
+        - "Stopping"
+        - "Starting"
+        - "Started"
+    description: "Commissioning status"
+  EDataPointV1Type:
+    type: "string"
+    description: "The AI, AO, BI, BO types are well known. The LE is for logical expressions,\
+      \ the NF type is for not found and the ST type is for a statistic point. "
+    enum:
+    - "AI"
+    - "AO"
+    - "BI"
+    - "BO"
+    - "LE"
+    - "ST"
+    - "NF"
+  DataPointV1:
+    properties:
+      ID:
+        type: "integer"
+        description: "Data point identifier"
+      Type:
+        description: "Data point type (e.g.: AI, BI,...)"
+        $ref: "#/definitions/EDataPointV1Type"
+      Name:
+        type: "string"
+        description: "Data point name"
+      Description:
+        type: "string"
+        description: "Data point description"
+      Producer:
+        description: "The protocol instance that produce the data point"
+        $ref: "#/definitions/DataPointV1_Instance"
+      Consumers:
+        type: "array"
+        description: "The protocol instances that consume the data point"
+        items:
+          $ref: "#/definitions/DataPointV1_Instance"
+      Value:
+        type: "number"
+        format: "float"
+        description: "Data point calculated value, using the scaling and offset values"
+      ValueRaw:
+        type: "integer"
+        format: "int64"
+        description: "Data point value retrieved from the device"
+      State:
+        type: "boolean"
+        description: "Data point state"
+      Status:
+        type: "integer"
+        format: "int32"
+        description: "Data point quality"
+      OutputStatus:
+        type: "integer"
+        format: "int32"
+        description: "Data point control status"
+      Date:
+        description: "Data point timestamping"
+        $ref: "#/definitions/SmpDateV1"
+      DeadBand:
+        type: "number"
+        format: "float"
+        description: "Dead band value applied to the data point"
+      Scale:
+        type: "number"
+        format: "float"
+        description: "Scale value applied to the data point"
+      Offset:
+        type: "number"
+        format: "float"
+        description: "Offset value applied to the data point"
+      UnitFormat:
+        type: "string"
+        description: "Unit format that applies to the data point (for analog values\
+          \ only)"
+      Limits:
+        $ref: "#/definitions/DataPointV1_Limits"
+    description: "Data points model for the Points V1 response"
+  DataPointV1_Instance:
+    properties:
+      ID:
+        type: "integer"
+        format: "int32"
+        description: "Instance identifier"
+      Name:
+        type: "string"
+        description: "Instance name with complete information about the master or\
+          \ slave protocol"
+      FriendlyName:
+        type: "string"
+        description: "Instance's short name, the same name as the one displayed on\
+          \ the HMI web interface"
+      Address:
+        type: "string"
+        description: "Address assigned to the data point while configuring the instance\
+          \ component. This is used for data point identification."
+    description: "Model for point's instances"
+  DataPointsV1:
+    properties:
+      Points:
+        type: "array"
+        items:
+          $ref: "#/definitions/DataPointV1"
+      HaveMore:
+        type: "boolean"
+        description: "Informs the user if more data points are to be transferred,\
+          \ other than the ones that were requested. A true value means that there\
+          \ are more data points, a false value means that the user cannot request\
+          \ for more data points."
+      Skip:
+        type: "integer"
+        format: "int64"
+        description: "When the user uses the Skip query parameters to request a limited\
+          \ number of data points, the Skip value at the end of the response request\
+          \ tells the user which skip value should be entered in the Skip query parameter\
+          \ field for the next request to continue retrieving the data points on a\
+          \ continuous basis without losing any data points."
+      ChangeID:
+        type: "integer"
+        format: "int64"
+        description: "The user can choose to retrieve only data points for which a\
+          \ transition occurred, this helps reduce bandwidth. Every data point transition\
+          \ is identified with a ChangeID number.  The returned response parameter\
+          \ Change ID tells the user what is the last Change ID that was transmitted\
+          \ in the response.  This Change ID number can then be used in the next query\
+          \ Change ID parameter to allow retrieving all data points that had transitions\
+          \ on a continuous basis without losing any transition."
+      Overflow:
+        type: "boolean"
+        description: "Transitions were missed, the time elapsed since the last ChangeID\
+          \ was too long. The user must request a complete list of data points to\
+          \ get all transitions."
+    description: "Response to the Filter service"
+  DataPointsV1_Filters:
+    properties:
+      IDs:
+        type: "array"
+        description: "Data point identifiers"
+        items:
+          type: "integer"
+      Names:
+        type: "array"
+        description: "Data point Names"
+        items:
+          type: "string"
+      Types:
+        type: "array"
+        description: "Data point types (default: AI, BI, AO, BO)"
+        items:
+          $ref: "#/definitions/EDataPointV1Type"
+    description: "Specific filters for data points"
+  DataPointsV1_Set:
+    properties:
+      Control:
+        $ref: "#/definitions/DataPointsV1_Set_Control"
+      Simulate:
+        $ref: "#/definitions/DataPointsV1_Set_Simulate"
+      Unsimulate:
+        type: "boolean"
+        description: "Cancel the simulation on the data point."
+    description: "Set the data point modification to apply"
+  DataPointsV1_SetResponse:
+    properties:
+      Result:
+        type: "string"
+    description: "Response to the data point set request"
+  EDataInstancesV1Behavior:
+    type: "string"
+    description: "Instance simulation behavior"
+    enum:
+    - "NoSimulationAllowed"
+    - "SimulationAllowed"
+    - "SimulateDevice"
+  DataInstancesV1_List:
+    properties:
+      Instances:
+        type: "array"
+        items:
+          $ref: "#/definitions/DataInstanceV1"
+      HaveMore:
+        type: "boolean"
+        description: "Informs the user if more instances are to be transferred, other\
+          \ than the ones that were requested. A true value means that there are more\
+          \ instances, a false value means that the user cannot request for more instances."
+      Skip:
+        type: "integer"
+        format: "int64"
+        description: "Informs the user which skip value should be entered in the Skip\
+          \ query parameter field to continue retrieving the instances on a continuous\
+          \ basis without losing any of them."
+      ChangeID:
+        type: "integer"
+        format: "int64"
+        description: "The user can retrieve only instances for which data point transitions\
+          \ occurred, this helps reduce bandwidth. Every instance containing transitions\
+          \ is identified with a ChangeID number. Informs the user what is the last\
+          \ Change ID value that was transmitted in the response.  This Change ID\
+          \ value can then be used in the next Change ID query parameter to allow\
+          \ retrieving all instances for which data points had transitions on a continuous\
+          \ basis without losing any transition."
+      Overflow:
+        type: "boolean"
+        description: "Transitions were missed; the time elapsed since the last ChangeID\
+          \ was too long. The user must request a complete list of instances to get\
+          \ all transitions.  "
+    description: "Response for Instances List service"
+  DataInstanceV1:
+    properties:
+      ID:
+        type: "integer"
+        format: "int32"
+        description: "Instance identifier"
+      Name:
+        type: "string"
+        description: "Instance name with complete information about the master or\
+          \ slave protocol"
+      FriendlyName:
+        type: "string"
+        description: "Instance's short name, the same name as the one displayed on\
+          \ the HMI web interface"
+      IsProducer:
+        type: "boolean"
+        description: "Is the instance is producer of data points that are listed under\
+          \ its name?"
+      IsConsumer:
+        type: "boolean"
+        description: "Is the instance is consumer of data points that are listed under\
+          \ its name?"
+      ProducedPointCount:
+        type: "integer"
+        format: "int32"
+        description: "Quantity of points that the instance produces"
+      Simulation:
+        $ref: "#/definitions/DataInstanceV1_Simulation"
+    description: "Model for Instance"
+  DataInstancesV1_Set:
+    properties:
+      Behavior:
+        $ref: "#/definitions/DataInstancesV1_Set_Behavior"
+    description: "Modifying an instance behavior"
+  DiagnosticsStatisticsV1:
+    properties:
+      Name:
+        type: "string"
+      Type:
+        type: "string"
+        description: "Statistic entry type"
+        enum:
+        - "text"
+        - "boolean"
+        - "integer"
+        - "unsigned"
+        - "number"
+        - "datetime"
+      Value:
+        type: "object"
+        description: "Statistic entry value"
+        properties: {}
+      Fields:
+        type: "array"
+        description: "Fields for this item"
+        items:
+          $ref: "#/definitions/DiagnosticsStatisticsV1"
+      Pages:
+        type: "array"
+        description: "Sub-pages of this item"
+        items:
+          type: "string"
+    description: "Response to the List service of Statistics V1"
+  SystemExecuteV1_Execute_App:
+    properties:
+      Name:
+        type: "string"
+      Arguments:
+        type: "string"
+  SystemRestartV1_StartupCount:
+    properties:
+      SmfApp:
+        type: "integer"
+        description: "The number of consecutive times that a soft restart was performed\
+          \ on the main application."
+      Webs:
+        type: "integer"
+        description: "The number of consecutive times that a soft restart was performed\
+          \ on the web server."
+  SecurityLocalSettingsV1_SecurityPolicy_AccountLock:
+    properties:
+      EnableAccountLock:
+        type: "boolean"
+        description: "Indicates that the account locking function is enabled."
+      EnableAdminAccountLock:
+        type: "boolean"
+        description: "Indicates that the SMP Gateway administrator account locking\
+          \ function is enabled."
+      EnableAutoAccountUnlock:
+        type: "boolean"
+        description: "Indicates that the account unlocking function is enabled."
+      MaxFailedLoginAttempts:
+        type: "integer"
+        format: "int32"
+        description: "Maximum number of failed login attempts."
+      MaxFailedLoginsWithin:
+        type: "integer"
+        format: "int32"
+        description: "Account lock will occur if the maximum number of failed login\
+          \ attempts occurs over this time."
+      RemoveAccountLockoutAfter:
+        type: "integer"
+        format: "int32"
+        description: "Delay for removing lockout of an account."
+      RemoveAdminAccountLockoutAfter:
+        type: "integer"
+        format: "int32"
+        description: "Delay for removing lockount of an administrator account."
+    description: "Obect containing properties related to the account locking function."
+  SecurityLocalSettingsV1_SecurityPolicy_Accounts:
+    properties:
+      ID:
+        type: "string"
+        description: "Identifier used to access the user account in the web service."
+      Password:
+        type: "string"
+        description: "Password for this account.  Empty when retrieving the security."
+      Roles:
+        type: "array"
+        description: "List of the role's identifier this account has access to (groups\
+          \ in the SMP Gateway) (Optional)."
+        items:
+          type: "string"
+  SecurityLocalSettingsV1_SecurityPolicy_PasswordComplexity:
+    properties:
+      MeetComplexityRequirements:
+        type: "boolean"
+        description: "Indicates if it is required that account passwords meet minimum\
+          \ complexity requirements"
+      MinimumPasswordLength:
+        type: "integer"
+        format: "int32"
+        description: "Minimum password length allowed when creating or modifying an\
+          \ account"
+    description: "Object containing password complexity settings"
+  SecurityLocalSettingsV1_SecurityPolicy_Roles:
+    properties:
+      ID:
+        type: "string"
+        description: "Role name"
+      IsAdmin:
+        type: "boolean"
+        description: "Is an administrator role?"
+      Privileges:
+        type: "array"
+        description: "List of the privileges'identifier associated to this role"
+        items:
+          type: "string"
+    description: "Object containing properties related to roles"
+  SecurityLocalSettingsV1_SecurityPolicy:
+    properties:
+      ID:
+        type: "string"
+        description: "Identifer used to access the policy in the web service.  This\
+          \ identifier is ignored for POST and PUT requests."
+      Description:
+        type: "string"
+      AccountLock:
+        $ref: "#/definitions/SecurityLocalSettingsV1_SecurityPolicy_AccountLock"
+      Accounts:
+        type: "array"
+        description: "Object containing properties related to accounts."
+        items:
+          $ref: "#/definitions/SecurityLocalSettingsV1_SecurityPolicy_Accounts"
+      DateModified:
+        type: "string"
+        format: "date-time"
+      PasswordComplexity:
+        $ref: "#/definitions/SecurityLocalSettingsV1_SecurityPolicy_PasswordComplexity"
+      Roles:
+        type: "array"
+        items:
+          $ref: "#/definitions/SecurityLocalSettingsV1_SecurityPolicy_Roles"
+    description: "Model for SecurityPolicy"
+  DashboardNamePlateInformationsGetV1_Informations_Firmware:
+    properties:
+      ApplicationVersion:
+        type: "string"
+        description: "Version number of the SMF Application"
+      BootstrapVersion:
+        type: "string"
+        description: "Version number of the SMP Gateway bootstrap"
+      OsVersion:
+        type: "string"
+        description: "Version number of the SMP Gateway Operating System"
+    description: "Model for Firmware"
+  DashboardNamePlateInformationsGetV1_Informations_Hardware:
+    properties:
+      Model:
+        type: "string"
+        description: "Device model number or name"
+      SerialNumber:
+        type: "string"
+        description: "Unit's serial number"
+    description: "Model for Hardware"
+  DashboardNamePlateInformationsGetV1_Informations_Settings:
+    properties:
+      Company:
+        type: "string"
+        description: "Company name, as specified in the configuration file"
+      Description:
+        type: "string"
+        description: ""
+      FileCRC:
+        type: "integer"
+        format: "int64"
+        description: "Cyclic Redundancy Check (CRC) of the configuration"
+      FileDate:
+        type: "string"
+        format: "date-time"
+        description: "Date of the configuration file (ISO-8601 format)"
+      Filename:
+        type: "string"
+        description: "Name of the configuration file"
+      Name:
+        type: "string"
+        description: "Configuration name, as specified in the configuration file"
+      Region:
+        type: "string"
+        description: "Region name, as specified in the configuration file"
+      Substation:
+        type: "string"
+        description: "Substation name, as specified in the configuration file"
+    description: "Model for Settings"
+  DashboardNamePlateInformationsGetV1_Informations:
+    properties:
+      ID:
+        type: "string"
+        description: "Nameplate informations identifier "
+      Firmware:
+        $ref: "#/definitions/DashboardNamePlateInformationsGetV1_Informations_Firmware"
+      Hardware:
+        $ref: "#/definitions/DashboardNamePlateInformationsGetV1_Informations_Hardware"
+      Settings:
+        $ref: "#/definitions/DashboardNamePlateInformationsGetV1_Informations_Settings"
+    description: "The following nameplate informations are provided."
+  SystemInfoV1_Firmware:
+    properties:
+      ApplicationVersion:
+        type: "string"
+        description: "Version number of the SMF Application"
+      BootstrapVersion:
+        type: "string"
+        description: "Version number of the SMP Gateway bootstrap"
+      OsVersion:
+        type: "string"
+        description: "Version number of the OS of the SMP Gateway"
+    description: "Model for Firmware"
+  SystemInfoV1_Hardware:
+    properties:
+      Model:
+        type: "string"
+        description: "Device model number or name"
+      SerialNumber:
+        type: "integer"
+        format: "int64"
+        description: "Serial number for the unit"
+      Type:
+        type: "string"
+        description: "Device specific type "
+        enum:
+        - "Unknown"
+        - "SMP16CP"
+        - "SMP16SG"
+        - "SMP4DP"
+        - "SMP4000"
+        - "PC"
+      ResetCause:
+        type: "string"
+        description: "What was the cause of the reset"
+        enum:
+        - "Unknown"
+        - "Assert"
+        - "Watchdog"
+        - "ResetButton"
+        - "PowerFailure"
+        - "ForcedReset"
+        - "SoftWatchdog"
+    description: "Model for Hardware"
+  SystemInfoV1_Settings:
+    properties:
+      Company:
+        type: "string"
+        description: "Company name, as specified in the configuration file"
+      Description:
+        type: "string"
+        description: "Description of the file, as specified in the configuration file"
+      FileCRC:
+        type: "integer"
+        format: "int64"
+        description: "Cyclic Redundancy Check (CRC) of the configuration"
+      FileDate:
+        type: "string"
+        format: "date-time"
+        description: "Date of the configuration file (ISO-8601 format)"
+      Filename:
+        type: "string"
+        description: "Name of the configuration file"
+      Name:
+        type: "string"
+        description: "Configuration name, as specified in the configuration file"
+      Region:
+        type: "string"
+        description: "Region name, as specified in the configuration file"
+      Substation:
+        type: "string"
+        description: "Substation name, as specified in the configuration file"
+    description: "Model for Settings"
+  SystemInfoV1_License:
+    properties:
+      ID:
+        type: "string"
+        description: "License identifier"
+      Key:
+        type: "string"
+        description: "License key"
+      SignatureValid:
+        type: "boolean"
+        description: "Is the signature valid?"
+      ExtendedSupported:
+        type: "boolean"
+        description: "Is the Enhanced SMP Gateway Maintenance plan part of the license? "
+    description: "Only available to user with System Management privileges."
+  SystemInfoV1_Startup:
+    properties:
+      Mode:
+        type: "string"
+        description: "The last startup mode performed on the SMP Gateway"
+        enum:
+        - "Unknown"
+        - "Normal"
+        - "Safe"
+        - "MaxSafe"
+        - "ForceMaxSafe"
+        - "Rescue"
+        - "SEP"
+        - "Warm"
+        - "Redundancy"
+      State:
+        description: "The actual state of the SMP Gateway."
+        $ref: "#/definitions/ESystemStateV1"
+      StatusText:
+        type: "string"
+        description: "The actual SMP Gateway status as shown in SMP Manager."
+      StartupCount:
+        $ref: "#/definitions/SystemRestartV1_StartupCount"
+  DataPointV1_Limits:
+    properties:
+      Min:
+        type: "number"
+        format: "float"
+        description: "Minimum limit applicable to the data point value"
+      Max:
+        type: "number"
+        format: "float"
+        description: "Maximum limit applicable to the data point value"
+    description: "Limits applicable to the data point value"
+  DataPointsV1_Set_Control:
+    properties:
+      Type:
+        type: "string"
+        description: "Data point control type"
+        enum:
+        - "Direct_Execute"
+        - "Select"
+        - "Execute"
+        - "Recall"
+        - "Select_Logical"
+        - "Execute_Logical"
+        - "Direct_Execute_Logical"
+      State:
+        type: "boolean"
+        description: "Control the data point's state."
+      Value:
+        type: "number"
+        format: "float"
+        description: "Control the data point's value."
+      RawValue:
+        type: "integer"
+        format: "int32"
+        description: "Control the data point's raw value."
+      Pulse:
+        type: "integer"
+        description: "Pulse the data point for the specified delay."
+  DataPointsV1_Set_Simulate:
+    properties:
+      State:
+        type: "boolean"
+        description: "Simulate the data point's state."
+      Value:
+        type: "number"
+        format: "float"
+        description: "Simulate the data point's value."
+      RawValue:
+        type: "integer"
+        format: "int32"
+        description: "Simulate the data point's raw value."
+  DataInstanceV1_Simulation:
+    properties:
+      Behavior:
+        description: "Is the instance is consumer of data points that are listed under\
+          \ its name?"
+        $ref: "#/definitions/EDataInstancesV1Behavior"
+      PointCount:
+        type: "integer"
+        format: "int32"
+        description: "Quantity of point listed under this instance"
+  DataInstancesV1_Set_Behavior:
+    properties:
+      NewValue:
+        description: "Simulation behavior that the user wants to set"
+        $ref: "#/definitions/EDataInstancesV1Behavior"
+      OldValue:
+        description: "Actual simulation behavior that the user wants to modify.  The\
+          \ system verify is the value entered really correspond to the actual simulation\
+          \ behavior because the behavior may have been modified by another user.\
+          \  If it does not match the actual value, the simulation behavior will not\
+          \ be modified and the user should verify the actual behavior using the Instances\
+          \ list service."
+        $ref: "#/definitions/EDataInstancesV1Behavior"
+parameters: {}
+responses:
+  BadRequest:
+    description: "The operation has failed due to an invalid request. Ex.: invalid\
+      \ URI, invalid body, invalid parameters."
+  Created:
+    description: "The resource has been successfully created."
+  Forbidden:
+    description: "The operation has failed due to a forbidden request, the current\
+      \ authentification does not have the required privileges."
+  InternalServerError:
+    description: "The operation has failed due to an unexpected internal error."
+  NotAcceptable:
+    description: "The operation has failed due to an not unacceptable request. Ex.:\
+      \ The operation is not valid at this time (current status) or the resource already\
+      \ exists."
+  NotFound:
+    description: "The operation has failed due to an unfound resource. Ex.: Too many\
+      \ sessions already opened, resource not existing."
+  NotImplemented:
+    description: "The operation has failed due to an un-implemented method."
+  NotModified:
+    description: "The operation did not implement any modification. Ex: Invalid old\
+      \ value when setting a new behavior, requesting to unsimulate a data point that\
+      \ was not simulated."
+  OK:
+    description: "The operation was completed with success."
+  ServiceUnavailable:
+    description: "The operation has failed because the service is unavailable for\
+      \ the moment (ex.: starting, restarting or safe mode)."
+  Unauthorized:
+    description: "The operation has failed due to an unauthorized request. Ex.: failed\
+      \ to create a session, expired session, invalid basic authentification."
+securityRequirement:
+- Basic: []
