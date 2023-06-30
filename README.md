@@ -30,10 +30,11 @@ SMP REST API
 
 To run open a commant and the promt and tipe
 
-´´´´
-run dotnet
 
-´´´´
+```
+run dotnet
+```
+
 
 
 
